@@ -8,14 +8,13 @@ import { useFormContext } from 'react-hook-form';
 
 export default function CustomerRegisteredDetailsSection() {
 
-    const { register, watch, control } = useFormContext()
+    const { watch } = useFormContext()
 
     const nonVAT = watch('nonVAT')
 
     return (
         <FormSection title="CUSTOMER REGISTERED DETAILS">
             <RadioGroup width={100}
-                control={control}
                 name="companyType"
                 options={[
                     { label: '(Pty) Ltd' },
@@ -37,7 +36,6 @@ export default function CustomerRegisteredDetailsSection() {
 
             <RadioGroup width={30}
                 label="Listed"
-                control={control}
                 name="holdingCompanyListed"
                 options={[
                     { label: 'Y' },
@@ -47,7 +45,6 @@ export default function CustomerRegisteredDetailsSection() {
             <RadioGroup width={100}
                 label="Can our CFO contact you to obtain your latest audited financial results"
                 name="canContact"
-                control={control}
                 options={[
                     { label: 'Y' },
                     { label: 'N' },

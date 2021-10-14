@@ -1,11 +1,8 @@
 import React from 'react'
 import FormSection from '../FormSection';
 import TextInput from '../FormComponents/TextInput';
-import { useFormContext } from 'react-hook-form';
 
 export default function CustomerDeliveryAddress() {
-
-    const { register } = useFormContext()
 
     return (
         <FormSection title="CUSTOMER DELIVERY ADDRESS FOR THIS ORDER">

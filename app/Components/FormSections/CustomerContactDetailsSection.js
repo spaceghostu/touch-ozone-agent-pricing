@@ -6,7 +6,7 @@ import { useFormContext } from 'react-hook-form';
 
 export default function CustomerContactDetailsSection() {
 
-    const { register, watch, control } = useFormContext()
+    const { watch } = useFormContext()
 
     const postalSameAsAbove = watch('postalSameAsAbove');
 
@@ -16,7 +16,6 @@ export default function CustomerContactDetailsSection() {
             <TextInput label="Code" width={100} name="physicalCode" />
             <RadioGroup width={100}
                 label="Postal Address same as above"
-                control={control}
                 name="postalSameAsAbove"
                 options={[
                     { label: 'Y' },

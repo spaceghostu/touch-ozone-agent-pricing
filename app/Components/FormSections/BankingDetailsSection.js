@@ -7,7 +7,7 @@ import { useFormContext } from 'react-hook-form';
 
 export default function BankingDetailsSection() {
 
-    const { register, watch, control } = useFormContext()
+    const { watch } = useFormContext()
 
     const otherBank = watch('otherBank')
 
@@ -15,7 +15,6 @@ export default function BankingDetailsSection() {
         <FormSection title="BANKING DETAILS">
             <RadioGroup width={100}
                 disabled={otherBank}
-                control={control}
                 label="Bank"
                 name="bank"
                 options={[

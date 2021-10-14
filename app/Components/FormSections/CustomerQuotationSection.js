@@ -2,12 +2,9 @@ import React from 'react'
 import FormSection from '../FormSection';
 import TextInput from '../FormComponents/TextInput';
 import InputTable, { Td } from '../FormComponents/InputTable';
-import { useFormContext } from 'react-hook-form';
 import LabelOnly from '../FormComponents/LabelOnly';
 
 export default function CustomerQuotationSection() {
-
-    const { register } = useFormContext()
 
     const Row = (code, description) => (
         <tr>
