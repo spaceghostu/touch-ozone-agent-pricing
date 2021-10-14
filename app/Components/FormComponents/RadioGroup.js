@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components/native'
 import { CheckBox } from 'react-native';
-import { Controller } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 
-const RadioGroup = ({ options, width, label, name, disabled, control }) => {
+const RadioGroup = ({ options, width, label, name, disabled }) => {
 
-    const [value, setValue] = useState();
+    const { setValue, watch } = useFormContext();
 
-    const handleChange = value => setValue(value);
+    const handleChange = value => setValue(name, value);
+
+    const thisValue = watch(name);
+
+    useEffect(() => {
+        setValue(name, '');
+    }, [])
 
     return (
         <Wrapper width={width}>
@@ -18,8 +24,8 @@ const RadioGroup = ({ options, width, label, name, disabled, control }) => {
                     <CheckBox
                         disabled={disabled}
                         name={option.label}
-                        onValueChange={value => handleChange(option.label)}
-                        value={value === option.label}
+                        onValueChange={() => handleChange(option.label)}
+                        value={thisValue === option.label}
                     />
                 </Option>
             ))}
