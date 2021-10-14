@@ -7,15 +7,15 @@ import { useFormContext } from 'react-hook-form';
 
 export default function BankingDetailsSection() {
 
-    const { register, watch } = useFormContext()
+    const { register, watch, control } = useFormContext()
 
     const otherBank = watch('otherBank')
 
     return (
         <FormSection title="BANKING DETAILS">
             <RadioGroup width={100}
-                {...register("bank")}
                 disabled={otherBank}
+                control={control}
                 label="Bank"
                 name="bank"
                 options={[
@@ -24,14 +24,14 @@ export default function BankingDetailsSection() {
                     { label: 'ABSA' },
                     { label: 'Nedbank' },
                 ]} />
-            <TextInput label="Other" width={100} register={register} name="otherBank" />
-            <TextInput label="Branch Name" width={50} register={register} name="branchName" />
-            <TextInput label="Account Type" width={50} register={register} name="accountType" />
-            <TextInput label="Account No" width={50} register={register} name="accountNo" />
-            <TextInput label="Account Holder" width={50} register={register} name="accountHolder" />
+            <TextInput label="Other" width={100} name="otherBank" />
+            <TextInput label="Branch Name" width={50} name="branchName" />
+            <TextInput label="Account Type" width={50} name="accountType" />
+            <TextInput label="Account No" width={50} name="accountNo" />
+            <TextInput label="Account Holder" width={50} name="accountHolder" />
             <LabelOnly label="Date Opened" width={20} />
-            <TextInput label="Month" width={40} register={register} name="dateOpenedMonth" />
-            <TextInput label="Year" width={40} register={register} name="dateOpenedYear" />
+            <TextInput label="Month" width={40} name="dateOpenedMonth" />
+            <TextInput label="Year" width={40} name="dateOpenedYear" />
         </FormSection>
     )
 }

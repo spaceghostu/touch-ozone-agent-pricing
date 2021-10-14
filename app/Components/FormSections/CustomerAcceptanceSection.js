@@ -9,11 +9,11 @@ export default function CustomerAcceptanceSection() {
 
     return (
         <FormSection title="CUSTOMER ACCEPTANCE">
-            <TextInput label="Signature" width={100} register={register} name="signature" taller />
-            <TextInput label="Name" width={100} register={register} name="name" />
-            <TextInput label="Authority/Designation" sup="1" width={100} register={register} name="authorityDesignation" />
-            <TextInput label="Date" width={100} register={register} name="acceptanceDate" />
-            <TextInput label="Official Order Number" width={100} register={register} name="orderNumber" />
+            <TextInput label="Signature" width={100} name="signature" taller />
+            <TextInput label="Name" width={100} name="name" />
+            <TextInput label="Authority/Designation" sup="1" width={100} name="authorityDesignation" />
+            <TextInput label="Date" width={100} name="acceptanceDate" />
+            <TextInput label="Official Order Number" width={100} name="orderNumber" />
         </FormSection>
     )
 }

@@ -24,11 +24,11 @@ export default function CustomerSearchSection() {
 
     return (
         <FormSection title="TOUCH OZONE (PTY) LTD CUSTOMER REGISTRATION AND SALES ORDER PROCESS" titleCenter>
-            <CheckInput label="Existing Customer" width={30} {...register("existingCustomer")} name="existingCustomer" control={control} />
-            {/* <Typeahead label="Search" width={70} register={register} name="customer" options={options} /> */}
-            <TextInput label="Search" width={70} register={register} name="customer" />
-            <TextInput label="Authorized Agent" width={50} register={register} name="authorizingAgent" />
-            <TextInput label="Cell Number" width={50} register={register} name="cellNo" />
+            <CheckInput label="Existing Customer" width={30} name="existingCustomer" control={control} />
+            {/* <Typeahead label="Search" width={70} name="customer" options={options} /> */}
+            <TextInput label="Search" width={70} name="customer" />
+            <TextInput label="Authorized Agent" width={50} name="authorizingAgent" />
+            <TextInput label="Cell Number" width={50} name="cellNo" />
         </FormSection>
     )
 }

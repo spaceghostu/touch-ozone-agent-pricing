@@ -1,19 +1,17 @@
-import React, { forwardRef } from 'react'
+import React from 'react'
 import InputWrapper from './InputWrapper'
 import { CheckBox, Text } from "react-native";
 import { Controller } from 'react-hook-form';
 import styled from 'styled-components/native';
 
-const CheckInput = forwardRef(({ label, innerLabel, width, name, control }, ref) => {
+const CheckInput = ({ label, innerLabel, width, name, control }) => {
 
     return (
         <InputWrapper label={label} width={width}>
             <Inner>
                 <Controller
                     control={control}
-                    rules={{
-                        maxLength: 100,
-                    }}
+                    rules={{}}
                     render={({ field: { onChange, onBlur, value } }) => (
                         <CheckBox
                             onBlur={onBlur}
@@ -28,7 +26,7 @@ const CheckInput = forwardRef(({ label, innerLabel, width, name, control }, ref)
             </Inner>
         </InputWrapper>
     )
-})
+}
 
 
 export default CheckInput

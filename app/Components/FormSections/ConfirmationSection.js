@@ -9,7 +9,7 @@ export default function ConfirmationSection() {
 
     return (
         <FormSection title="CONFIRMATION OF RECEIPT OF ORDER">
-            <TextInput label="Touch Ozone Reference Number" width={100} register={register} name="refNo" />
+            <TextInput label="Touch Ozone Reference Number" width={100} name="refNo" />
         </FormSection>
     )
 }

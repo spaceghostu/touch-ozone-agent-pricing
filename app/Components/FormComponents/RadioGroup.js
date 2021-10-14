@@ -1,37 +1,31 @@
-import React, { forwardRef } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components/native'
 import { CheckBox } from 'react-native';
 import { Controller } from 'react-hook-form';
 
-const RadioGroup = forwardRef(({ options, width, label, name, disabled, control }, ref) => {
+const RadioGroup = ({ options, width, label, name, disabled, control }) => {
+
+    const [value, setValue] = useState();
+
+    const handleChange = value => setValue(value);
+
     return (
         <Wrapper width={width}>
             {label && <Label>{label}</Label>}
             {options.map((option, index) => (
                 <Option key={index}>
                     <OptionLabel>{option.label}</OptionLabel>
-                    <Controller
-                        control={control}
-                        rules={{
-                            maxLength: 100,
-                        }}
-                        render={({ field: { onChange, onBlur, value } }) => (
-                            <CheckBox
-                                disabled={disabled}
-                                onBlur={onBlur}
-                                onValueChange={onChange}
-                                value={value}
-                            />
-                        )}
-                        name={name}
-                        defaultValue={false}
+                    <CheckBox
+                        disabled={disabled}
+                        name={option.label}
+                        onValueChange={value => handleChange(option.label)}
+                        value={value === option.label}
                     />
                 </Option>
             ))}
         </Wrapper>
     )
-})
-
+}
 
 const Wrapper = styled.View`
     display: flex;

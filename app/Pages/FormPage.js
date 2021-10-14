@@ -11,6 +11,7 @@ import CustomerSearchSection from '../Components/FormSections/CustomerSearchSect
 import ConfirmationSection from '../Components/FormSections/ConfirmationSection';
 import CustomerAcceptanceSection from '../Components/FormSections/CustomerAcceptanceSection';
 import { FormProvider, useForm } from 'react-hook-form';
+import { Button } from 'react-native';
 
 export default function FormPage() {
 
@@ -36,6 +37,7 @@ export default function FormPage() {
                     ii. that the company will duly and punctually comply with its payment obligations in terms of this agreement
                 </Notice>
                 <ConfirmationSection />
+                <Button title="Submit" onPress={handleSubmit(onSubmit)} />
             </PageWrapper>
         </FormProvider>
     )

@@ -19,27 +19,27 @@ export default function CustomerContactsSection() {
             ]}>
                 <tr>
                     <Td><LabelOnly noBorder label="Operations (COO)" /></Td>
-                    <Td><TextInput noBorder register={register} name={`customerContact-operations-name`} /></Td>
-                    <Td><TextInput noBorder register={register} name={`customerContact-operations-telephone`} /></Td>
-                    <Td><TextInput noBorder register={register} name={`customerContact-operations-email`} /></Td>
+                    <Td><TextInput noBorder name={`customerContact-operations-name`} /></Td>
+                    <Td><TextInput noBorder name={`customerContact-operations-telephone`} /></Td>
+                    <Td><TextInput noBorder name={`customerContact-operations-email`} /></Td>
                 </tr>
                 <tr>
                     <Td><LabelOnly noBorder label="SCM - Buyer" /></Td>
-                    <Td><TextInput noBorder register={register} name={`customerContact-scmBuyer-name`} /></Td>
-                    <Td><TextInput noBorder register={register} name={`customerContact-scmBuyer-telephone`} /></Td>
-                    <Td><TextInput noBorder register={register} name={`customerContact-scmBuyer-email`} /></Td>
+                    <Td><TextInput noBorder name={`customerContact-scmBuyer-name`} /></Td>
+                    <Td><TextInput noBorder name={`customerContact-scmBuyer-telephone`} /></Td>
+                    <Td><TextInput noBorder name={`customerContact-scmBuyer-email`} /></Td>
                 </tr>
                 <tr>
                     <Td><LabelOnly noBorder label="Finance - Creditors" /></Td>
-                    <Td><TextInput noBorder register={register} name={`customerContact-financeCreditors-name`} /></Td>
-                    <Td><TextInput noBorder register={register} name={`customerContact-financeCreditors-telephone`} /></Td>
-                    <Td><TextInput noBorder register={register} name={`customerContact-financeCreditors-email`} /></Td>
+                    <Td><TextInput noBorder name={`customerContact-financeCreditors-name`} /></Td>
+                    <Td><TextInput noBorder name={`customerContact-financeCreditors-telephone`} /></Td>
+                    <Td><TextInput noBorder name={`customerContact-financeCreditors-email`} /></Td>
                 </tr>
                 <tr>
                     <Td><LabelOnly noBorder label="HR - Health/Compliance" /></Td>
-                    <Td><TextInput noBorder register={register} name={`customerContact-HR-name`} /></Td>
-                    <Td><TextInput noBorder register={register} name={`customerContact-HR-telephone`} /></Td>
-                    <Td><TextInput noBorder register={register} name={`customerContact-HR-email`} /></Td>
+                    <Td><TextInput noBorder name={`customerContact-HR-name`} /></Td>
+                    <Td><TextInput noBorder name={`customerContact-HR-telephone`} /></Td>
+                    <Td><TextInput noBorder name={`customerContact-HR-email`} /></Td>
                 </tr>
             </InputTable>
         </FormSection>

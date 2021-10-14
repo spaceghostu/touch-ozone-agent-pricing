@@ -13,7 +13,7 @@ export default function CustomerQuotationSection() {
         <tr>
             <Td><LabelOnly noBorder center label={code} /></Td>
             <Td><LabelOnly noBorder center label={description} /></Td>
-            <Td><TextInput noBorder register={register} name={`quote-SKU001-quantity`} /></Td>
+            <Td><TextInput noBorder name={`quote-SKU001-quantity`} /></Td>
             <Td></Td>
             <Td></Td>
         </tr>
@@ -38,11 +38,11 @@ export default function CustomerQuotationSection() {
                 {Row('SKU 0013', 'Large door/trolley handle sticker')}
                 <tr>
                     <Td colSpan="4">VAT (If applicable)</Td>
-                    <Td><TextInput noBorder register={register} name="quote-vat" /></Td>
+                    <Td><TextInput noBorder name="quote-vat" /></Td>
                 </tr>
                 <tr>
                     <Td colSpan="4">TOTAL - Including Shipping</Td>
-                    <Td><TextInput noBorder register={register} name="quote-total" /></Td>
+                    <Td><TextInput noBorder name="quote-total" /></Td>
                 </tr>
             </InputTable>
         </FormSection>
