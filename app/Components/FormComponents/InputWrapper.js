@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components/native'
+import { Sup } from '../../Pages/FormPage'
 
 export default function InputWrapper({ label, width, children, sup, noBorder, taller, noPadding }) {
     return (
         <Wrapper width={width} taller={taller}>
-            {label && <Label>{label}{sup && <sup>{sup}</sup>}</Label>}
+            {label && <Label>{label}{sup && <Sup>{sup}</Sup>}</Label>}
             <Control noBorder={noBorder} noPadding={noPadding}>
                 {children}
             </Control>

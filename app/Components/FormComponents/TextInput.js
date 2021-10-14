@@ -33,6 +33,10 @@ const Input = styled.TextInput`
     height: 100%;
     padding: 5px;
     ${({ readonly }) => readonly && 'color: black;'}
+    ${({ disabled }) => disabled && `
+        background-color: #fdfdfd;
+        cursor: not-allowed;
+    `}
     ${({ currency }) => currency && 'opacity: 0;'}
 `
 

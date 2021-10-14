@@ -48,8 +48,8 @@ const Notice = styled.Text`
     padding: 20px;
 `
 
-const Sup = styled.Text`
+export const Sup = styled.Text`
     font-size: 8px;
     position: relative;
-    top: -8px;
+    top: -6px;
 `

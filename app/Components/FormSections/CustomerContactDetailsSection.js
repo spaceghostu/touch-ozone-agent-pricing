@@ -21,12 +21,9 @@ export default function CustomerContactDetailsSection() {
                     { label: 'Y' },
                     { label: 'N' },
                 ]} />
-            {postalSameAsAbove === "N" && (
-                <>
-                    <TextInput label="Postal Address" width={100} name="postalAddress" />
-                    <TextInput label="Code" width={100} name="postalCode" />
-                </>
-            )}
+
+            <TextInput disabled={postalSameAsAbove === "Y"} label="Postal Address" width={100} name="postalAddress" />
+            <TextInput disabled={postalSameAsAbove === "Y"} label="Code" width={100} name="postalCode" />
             <TextInput label="Telephone Number" width={50} name="telNo" />
             <TextInput label="Email Address" width={50} name="customerEmail" />
             <TextInput label="Website" width={100} name="website" />
