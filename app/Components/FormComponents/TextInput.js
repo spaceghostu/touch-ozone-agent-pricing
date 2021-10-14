@@ -14,7 +14,4 @@ const Input = styled.TextInput`
     width: 100%;
     height: 100%;
     padding: 5px;
-    margin: -10px;
-    border-width: 0px;
-    border-radius: 0;
 `

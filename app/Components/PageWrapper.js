@@ -22,6 +22,5 @@ const PageOuter = styled.View`
 const PageInner = styled.View`
     border: 1px solid #000;
     display: flex;
-    ${'' /* max-width: 800px; */}
     flex-direction: column;
 `

@@ -18,23 +18,16 @@ const Wrapper = styled.View`
 
 const Header = styled.Text`
     background-color: #bfbfbf;
-    border-width: 1px;
-    border-style: solid;
-    border-color: black;
     border-bottom-width: 0px;
     padding: 10px;
     font-weight: bold;
     text-align: ${props => props.titleCenter ? 'center' : 'start'};
+    border-width: 1px;
 `
 
 const Body = styled.View`
     display: flex;
     flex-direction: ${props => props.column ? 'column' : 'row'};
     flex-wrap: wrap;
-    border-right-width: 1px;
-    border-right-style: solid;
-    border-right-color: black;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: black;
+    margin-left: 1px;
 `

@@ -4,12 +4,10 @@ import styled from 'styled-components/native'
 export default function InputWrapper({ label, width, children, sup, noBorder, taller, noPadding }) {
     return (
         <Wrapper width={width} taller={taller}>
-            <Inner noBorder={noBorder}>
-                {label && <Label>{label}{sup && <sup>{sup}</sup>}</Label>}
-                <Control noBorder={noBorder} noPadding={noPadding}>
-                    {children}
-                </Control>
-            </Inner>
+            {label && <Label>{label}{sup && <sup>{sup}</sup>}</Label>}
+            <Control noBorder={noBorder} noPadding={noPadding}>
+                {children}
+            </Control>
         </Wrapper>
     )
 }
@@ -18,18 +16,13 @@ const Wrapper = styled.View`
     display: flex;
     flex-direction: row;
     flex: ${props => `1 1 ${props.width}%`};
-    background-color: black;
     ${props => props.taller ? 'height: 60px' : null};
     min-height: 28px;
-`
-
-const Inner = styled.View`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    background-color: white;
-    margin: ${props => props.noBorder ? '0' : '0.5px'};
-    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    margin-top: -1px;
+    margin-left: -1px;
 `
 
 const Label = styled.Text`
@@ -47,7 +40,6 @@ const Label = styled.Text`
 
 const Control = styled.View`
     display: flex;
-    ${'' /* padding: ${({ noPadding }) => noPadding ? '0' : '5px'}; */}
     padding: 0;
     flex: 1;
     align-items: center;

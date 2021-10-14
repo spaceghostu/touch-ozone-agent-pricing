@@ -6,30 +6,26 @@ import { Controller } from 'react-hook-form';
 const RadioGroup = forwardRef(({ options, width, label, name, disabled, control }, ref) => {
     return (
         <Wrapper width={width}>
-            {label && <Label>
-                <LabelInner>{label}</LabelInner>
-            </Label>}
+            {label && <Label>{label}</Label>}
             {options.map((option, index) => (
                 <Option key={index}>
-                    <OptionInner>
-                        <OptionLabel>{option.label}</OptionLabel>
-                        <Controller
-                            control={control}
-                            rules={{
-                                maxLength: 100,
-                            }}
-                            render={({ field: { onChange, onBlur, value } }) => (
-                                <CheckBox
-                                    disabled={disabled}
-                                    onBlur={onBlur}
-                                    onValueChange={onChange}
-                                    value={value}
-                                />
-                            )}
-                            name={name}
-                            defaultValue={false}
-                        />
-                    </OptionInner>
+                    <OptionLabel>{option.label}</OptionLabel>
+                    <Controller
+                        control={control}
+                        rules={{
+                            maxLength: 100,
+                        }}
+                        render={({ field: { onChange, onBlur, value } }) => (
+                            <CheckBox
+                                disabled={disabled}
+                                onBlur={onBlur}
+                                onValueChange={onChange}
+                                value={value}
+                            />
+                        )}
+                        name={name}
+                        defaultValue={false}
+                    />
                 </Option>
             ))}
         </Wrapper>
@@ -44,39 +40,31 @@ const Wrapper = styled.View`
     min-height: 28px;
 `
 
-const Label = styled.View`
-    display: flex;
-    flex: 1;
-    white-space: nowrap;
-    background-color: black;
-`
-const LabelInner = styled.Text`
+const Label = styled.Text`
     flex: 1;
     padding: 5px;
     flex-wrap: nowrap;
     display: flex;
-    background-color: white;
-    margin: 0.5px;
-    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    margin-top: -1px;
+    margin-left: -1px;
 `
 
 const Option = styled.View`
-    background-color: black;
-    display: flex;
-    flex: 1;
-`
-
-const OptionInner = styled.View`
     flex: 1;
     padding: 5px;
     flex-wrap: nowrap;
     display: flex;
-    background-color: white;
-    margin: 0.5px;
-    width: 100%;
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    margin-top: -1px;
+    margin-left: -1px;
 `
 
 const OptionLabel = styled.Text`
