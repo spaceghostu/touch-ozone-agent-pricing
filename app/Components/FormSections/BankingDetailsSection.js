@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import RadioGroup from '../FormComponents/RadioGroup'
 import FormSection from '../FormSection'
 import TextInput from '../FormComponents/TextInput';
@@ -7,9 +7,13 @@ import { useFormContext } from 'react-hook-form';
 
 export default function BankingDetailsSection() {
 
-    const { watch } = useFormContext()
+    const { watch, setValue } = useFormContext()
 
     const otherBank = watch('otherBank')
+
+    useEffect(() => {
+        if (otherBank) setValue('bank', '');
+    }, [otherBank])
 
     return (
         <FormSection title="BANKING DETAILS">

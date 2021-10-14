@@ -7,7 +7,11 @@ const RadioGroup = ({ options, width, label, name, disabled }) => {
 
     const { setValue, watch } = useFormContext();
 
-    const handleChange = value => setValue(name, value);
+    const handleChange = value => {
+        if (!disabled) {
+            setValue(name, value)
+        }
+    };
 
     const thisValue = watch(name);
 

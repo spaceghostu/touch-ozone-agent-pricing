@@ -12,12 +12,13 @@ import ConfirmationSection from '../Components/FormSections/ConfirmationSection'
 import CustomerAcceptanceSection from '../Components/FormSections/CustomerAcceptanceSection';
 import { FormProvider, useForm } from 'react-hook-form';
 import { Button } from 'react-native';
+import { generatePdf } from '../generatePdf';
 
 export default function FormPage() {
 
     const methods = useForm();
     const { handleSubmit } = methods;
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => generatePdf(data);
 
     return (
         <FormProvider {...methods} >
