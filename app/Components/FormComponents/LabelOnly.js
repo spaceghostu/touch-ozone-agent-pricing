@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components/native'
 
-export default function LabelOnly({ label, width, noBorder, center }) {
+export default function LabelOnly({ label, width, noBorder, center, bold }) {
     return (
-        <Wrapper width={width} noBorder={noBorder} center={center}>
+        <Wrapper width={width} noBorder={noBorder} center={center} bold={bold}>
             {label}
         </Wrapper>
     )
@@ -22,4 +22,5 @@ const Wrapper = styled.Text`
     border-color: black;
     margin-top: -1px;
     margin-left: -1px;
+    ${({ bold }) => bold && 'font-weight: bold;'}
 `
