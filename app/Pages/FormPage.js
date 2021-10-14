@@ -26,7 +26,7 @@ export default function FormPage() {
                 <CustomerRegisteredDetailsSection />
                 <CustomerContactDetailsSection />
                 <BankingDetailsSection />
-                {/* <CustomerContactsSection /> */}
+                <CustomerContactsSection />
                 {/* <CustomerQuotationSection /> */}
                 <CustomerDeliveryAddress />
                 <CustomerAcceptanceSection />

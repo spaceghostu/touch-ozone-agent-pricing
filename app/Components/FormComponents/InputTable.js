@@ -1,34 +1,42 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/native'
 
 export default function InputTable({ children, headers }) {
 
     return (
         <Wrapper>
-            <tbody>
-                <Thead headers={headers} />
-                {children}
-            </tbody>
+            <Head>
+                {headers.map((header, index) => (
+                    <Th key={index}>{header}</Th>
+                ))}
+            </Head>
+            {children}
         </Wrapper>
     )
 }
 
-const Wrapper = styled.table`
+const Wrapper = styled.View`
     width: 100%;
-    border-collapse: collapse;
+    flex-direction: column;
 `
 
-const Th = styled.th`
-    border: 1px solid black;
+const Head = styled.View`
+    flex-direction: row;
+    width: 100%;
+`
+
+const Th = styled.Text`
+    display: flex;
     height: 28px;
+    align-items: center;
+    flex: 1;
+    padding: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    margin-top: -1px;
+    margin-left: -1px;
 `
-
-export const Td = styled(Th)``;
-
-const Thead = ({ headers }) => (
-    <tr>
-        {headers.map((header, index) => (
-            <Th key={index}>{header}</Th>
-        ))}
-    </tr>
-)
+export const Trow = styled.View`
+    flex-direction: row;
+`
