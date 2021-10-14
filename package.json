@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "electron": "^6.0.12",
     "expo": "~42.0.1",
     "expo-status-bar": "~1.0.4",
     "react": "16.13.1",
@@ -19,10 +20,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
-    "@expo/electron-adapter": "^0.0.55"
-  },
-  "resolutions": {
-    "styled-components": "^5"
+    "@expo/electron-adapter": "^0.0.55",
+    "@expo/webpack-config": "^0.16.2"
   },
   "private": true
 }
