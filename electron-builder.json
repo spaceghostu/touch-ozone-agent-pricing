@@ -6,10 +6,23 @@
         "output": "dist",
         "buildResources": "build-res"
     },
+    "extraMetadata": {
+        "main": "main.js"
+    },
     "files": [
+        {
+            "from": "dist/main/",
+            "to": "./",
+            "filter": ["**/*"]
+        },
+        {
+            "from": "dist/renderer",
+            "to": "./",
+            "filter": ["**/*"]
+        },
         "package.json",
-        "app/**/*",
-        "node_modules"
+        "**/node_modules/**/*",
+        "app/**/*"
     ],
     "dmg": {
         "background": null,
@@ -36,10 +49,6 @@
         "category": "public.app-category.utilities"
     },
     "win": {
-        "target": "nsis"
-    },
-    "linux": {
-        "target": "AppImage",
-        "category": "Utility"
+        "target": "portable"
     }
 }
