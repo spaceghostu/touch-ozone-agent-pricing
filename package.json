@@ -1,14 +1,16 @@
 {
   "main": "node_modules/expo/AppEntry.js",
+  "name": "touch-ozone-agent-pricing",
+  "version": "0.0.1",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "build": "yarn electron-webpack && yarn electron-builder --win"
   },
   "dependencies": {
-    "electron": "^6.0.12",
     "expo": "~42.0.1",
     "expo-status-bar": "~1.0.4",
     "jspdf": "^2.4.0",
@@ -20,9 +22,11 @@
     "styled-components": "^5.3.1"
   },
   "devDependencies": {
+    "electron": "^6.0.12",
     "@babel/core": "^7.9.0",
     "@expo/electron-adapter": "^0.0.55",
-    "@expo/webpack-config": "^0.16.2"
+    "@expo/webpack-config": "^0.16.2",
+    "electron-builder": "^22.13.1"
   },
   "private": true
 }
