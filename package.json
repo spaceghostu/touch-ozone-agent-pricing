@@ -1,7 +1,7 @@
 {
   "main": "node_modules/expo/AppEntry.js",
   "name": "touch-ozone-agent-pricing",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -22,10 +22,10 @@
     "styled-components": "^5.3.1"
   },
   "devDependencies": {
-    "electron": "^6.0.12",
     "@babel/core": "^7.9.0",
     "@expo/electron-adapter": "^0.0.55",
     "@expo/webpack-config": "^0.16.2",
+    "electron": "^6.0.12",
     "electron-builder": "^22.13.1"
   },
   "private": true
