@@ -1,6 +1,7 @@
 import jsPDF from 'jspdf';
 import { headerDataURI, checkBox_false, checkBox_true } from './pdfImages';
 const { dialog } = require('electron').remote;
+import fs from 'fs-extra';
 
 const currency = (value) => 'R ' + (Math.round(value * 100) / 100).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ", ");
 
@@ -215,7 +216,18 @@ export const generatePdf = (data, email) => {
             ]
         };
         dialog.showSaveDialog(null, options).then(({ filePath }) => {
-            doc.save(filePath);
+            const pdf = doc.output('arraybuffer');
+            console.log(pdf);
+            fs.writeFile(filePath, Buffer.from(pdf), null, (err) => {
+                if (err) {
+                    console.log(err);
+                    dialog.showErrorBox("An error occurred while saving PDF", err)
+                };
+            })
+            // doc.save(filePath, { returnPromise: true }).then(null, error => {
+            //     alert("An error occurred while saving PDF")
+            //     console.log(error)
+            // });
         });
     }
 
