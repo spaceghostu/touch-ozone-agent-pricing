@@ -13,15 +13,29 @@ import CustomerAcceptanceSection from '../Components/FormSections/CustomerAccept
 import { FormProvider, useForm } from 'react-hook-form';
 import { generatePdf } from '../generatePdf';
 import Button from '../Components/Button';
+import { remote } from 'electron';
+const { showMessageBox } = remote.dialog
 
 export default function FormPage() {
 
     const methods = useForm();
     const { handleSubmit, reset } = methods;
     const save = data => generatePdf(data);
-    const email = data => generatePdf(data, true);
+    // const email = data => generatePdf(data, true);
 
-    const resetForm = () => reset(formDefaults);
+    const resetForm = () => {
+        showMessageBox({
+            title: 'Reset',
+            message: 'Are you sure you want to reset the form?',
+            type: 'warning',
+            buttons: ['Yes', 'No'],
+        }).then(
+            res => res.response === 0 ? reset(formDefaults) : null,
+            rej => console.log(rej),
+        )
+    };
+
+
 
     return (
         <FormProvider {...methods} >
