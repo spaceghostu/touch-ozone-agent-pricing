@@ -12,6 +12,7 @@ import ConfirmationSection from '../Components/FormSections/ConfirmationSection'
 import CustomerAcceptanceSection from '../Components/FormSections/CustomerAcceptanceSection';
 import { FormProvider, useForm } from 'react-hook-form';
 import { generatePdf } from '../generatePdf';
+import Button from '../Components/Button';
 
 export default function FormPage() {
 
@@ -41,9 +42,9 @@ export default function FormPage() {
                 </Notice>
                 <ConfirmationSection />
                 <Buttons>
-                    <Button onPress={resetForm}>Reset</Button>
-                    <Button onPress={handleSubmit(email)}>Email</Button>
-                    <Button onPress={handleSubmit(save)}>Save</Button>
+                    <Button onPress={resetForm} title="Reset" />
+                    {/* <Button onPress={handleSubmit(email)}>Email</Button> */}
+                    <Button onPress={handleSubmit(save)} title="Save" />
                 </Buttons>
             </PageWrapper>
         </FormProvider>
@@ -65,17 +66,6 @@ const Buttons = styled.View`
     flex-direction: row;
     margin: 20px;
     justify-content: flex-end;
-`
-const Button = styled.Text`
-    margin-left: 10px;
-    margin-right: 10px;
-    background-color: #bfbfbf;
-    padding: 10px;
-    border-width: 1px;
-    user-select: none;
-    &:hover {
-        background-color: #ddd;
-    }
 `
 
 const formDefaults = {
