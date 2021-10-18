@@ -217,7 +217,6 @@ export const generatePdf = (data, email) => {
         };
         dialog.showSaveDialog(null, options).then(({ filePath }) => {
             const pdf = doc.output('arraybuffer');
-            console.log(pdf);
             fs.writeFile(filePath, Buffer.from(pdf), null, (err) => {
                 if (err) {
                     console.log(err);
