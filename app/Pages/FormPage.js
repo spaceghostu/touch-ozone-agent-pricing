@@ -14,7 +14,10 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { generatePdf } from '../generatePdf';
 import Button from '../Components/Button';
 import { remote } from 'electron';
-const { showMessageBox } = remote.dialog
+const { showMessageBox, showOpenDialog } = remote.dialog
+import { PdfReader } from 'pdfreader';
+import fs from 'fs-extra';
+import Header from '../Components/Header';
 
 export default function FormPage() {
 
@@ -35,11 +38,35 @@ export default function FormPage() {
         )
     };
 
+    const open = () => {
+
+        const options = {
+            filters: [
+                { name: 'PDF', extensions: ['pdf'] },
+                { name: 'All Files', extensions: ['*'] }
+            ]
+        }
+
+        showOpenDialog(null, options).then(({ filePaths }) => {
+
+            fs.readFile(filePaths[0], (err, pdfBuffer) => {
+                // pdfBuffer contains the file content
+                new PdfReader().parseBuffer(pdfBuffer, function (err, item) {
+                    if (err) callback(err);
+                    else if (!item) callback();
+                    else if (item.text) console.log(item.text);
+                });
+            });
+
+        });
+    }
+
 
 
     return (
         <FormProvider {...methods} >
             <PageWrapper>
+                <Header />
                 <CustomerSearchSection />
                 <CustomerRegisteredDetailsSection />
                 <CustomerContactDetailsSection />
@@ -59,6 +86,7 @@ export default function FormPage() {
                     <Button onPress={resetForm} title="Reset" />
                     {/* <Button onPress={handleSubmit(email)}>Email</Button> */}
                     <Button onPress={handleSubmit(save)} title="Save" />
+                    {/* <Button onPress={open} title="Open" /> */}
                 </Buttons>
             </PageWrapper>
         </FormProvider>
