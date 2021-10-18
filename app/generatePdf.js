@@ -109,7 +109,7 @@ export const generatePdf = (data, email) => {
     header()
 
     section("TOUCH OZONE (PTY) LTD CUSTOMER REGISTRATION AND SALES ORDER PROCESS", [
-        [["Existing customer", 39], [data.existingCustomer, 18], ["Search", 35], [data.customer, 89]],
+        [["Existing customer", 39], [data.existingCustomer, 18], ["Customer", 35], [data.customer, 89]],
         [["Authorized agent", 39], [data.authorizingAgent, 53], ["Cell number", 38], [data.cellNo, 52]],
     ], { headerOffset: 25 })
 
