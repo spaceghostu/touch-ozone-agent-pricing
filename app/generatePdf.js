@@ -220,8 +220,11 @@ export const generatePdf = (data, email) => {
             const pdf = doc.output('arraybuffer');
             fs.writeFile(filePath, Buffer.from(pdf), null, (err) => {
                 if (err) {
-                    console.log(err);
-                    showErrorBox("An error occurred while saving PDF", err)
+                    showErrorBox("An error occurred while saving PDF", `
+                        Please ensure that no antivirus software is blocking this app.
+                        \n
+                        Error: ${error}
+                    `)
                 };
             })
             // doc.save(filePath, { returnPromise: true }).then(null, error => {
