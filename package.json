@@ -1,7 +1,7 @@
 {
   "main": "node_modules/expo/AppEntry.js",
   "name": "touch-ozone-agent-pricing",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -16,6 +16,7 @@
     "expo-status-bar": "~1.0.4",
     "fs-extra": "^10.0.0",
     "jspdf": "^2.4.0",
+    "pdfreader": "^1.2.12",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-hook-form": "^7.17.4",
