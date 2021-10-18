@@ -8,7 +8,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "build": "yarn version --patch && yarn electron-webpack && yarn electron-builder --win"
+    "build:patch": "yarn version --patch && yarn electron-webpack && yarn electron-builder --win",
+    "build:major": "yarn version --major && yarn electron-webpack && yarn electron-builder --win"
   },
   "dependencies": {
     "expo": "~42.0.1",
