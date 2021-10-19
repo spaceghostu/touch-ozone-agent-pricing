@@ -42,11 +42,11 @@ export default function CustomerQuotationSection() {
                 <Row code="SKU 013" description="Large door/trolley handle sticker" />
                 <Trow>
                     <LabelOnly center bold width={80} label="VAT (If applicable)" />
-                    <TextInput currency width={20} name="quote-vat" />
+                    <TextInput currency alignRight width={20} name="quote-vat" />
                 </Trow>
                 <Trow>
                     <LabelOnly center bold width={80} label="TOTAL - Including Shipping" />
-                    <TextInput currency width={20} name="quote-total" />
+                    <TextInput currency alignRight width={20} name="quote-total" />
                 </Trow>
             </InputTable>
         </FormSection>
@@ -90,9 +90,9 @@ const Row = ({ code, description }) => {
         <Trow>
             <LabelOnly width={20} center label={code} />
             <LabelOnly width={30} center label={description} />
-            <TextInput width={10} name={`quote-${code}-quantity`} />
-            <TextInput currency readonly width={20} name={`quote-${code}-unit-price`} />
-            <TextInput currency readonly width={20} name={`quote-${code}-total`} />
+            <TextInput width={10} alignRight name={`quote-${code}-quantity`} />
+            <TextInput currency alignRight readonly width={20} name={`quote-${code}-unit-price`} />
+            <TextInput currency alignRight readonly width={20} name={`quote-${code}-total`} />
         </Trow>
     )
 }

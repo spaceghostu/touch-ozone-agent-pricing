@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 import { Controller } from 'react-hook-form';
 import LabelOnly from './LabelOnly';
 
-export default function TextInput({ label, width, sup, noBorder, name, taller, disabled, control, readonly, currency }) {
+export default function TextInput({ label, width, sup, noBorder, name, taller, disabled, control, readonly, currency, alignRight }) {
 
     return (
         <InputWrapper label={label} width={width} sup={sup} noBorder={noBorder} taller={taller}>
@@ -19,6 +19,7 @@ export default function TextInput({ label, width, sup, noBorder, name, taller, d
                         onChangeText={onChange}
                         value={value}
                         currency={currency}
+                        alignRight={alignRight}
                     />
                 )}
                 name={name}
@@ -38,6 +39,7 @@ const Input = styled.TextInput`
         cursor: not-allowed;
     `}
     ${({ currency }) => currency && 'opacity: 0;'}
+    ${({ alignRight }) => alignRight && 'text-align: right;'}
 `
 
 const Mask = styled.Text`
@@ -45,6 +47,7 @@ const Mask = styled.Text`
     height: 100%;
     padding: 5px;
     position: absolute;
+    ${({ alignRight }) => alignRight && 'text-align: right;'}
 `
 
 const MaskInput = (props) => {
@@ -54,7 +57,7 @@ const MaskInput = (props) => {
     return (
         <>
             <Input {...props} />
-            {props.currency && <Mask>{currency(props.value)}</Mask>}
+            {props.currency && <Mask alignRight={props.alignRight}>{currency(props.value)}</Mask>}
         </>
     )
 }

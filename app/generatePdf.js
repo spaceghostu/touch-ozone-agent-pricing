@@ -47,12 +47,12 @@ export const generatePdf = (data, email) => {
             if (config.bold) doc.setFont(font.name, 'normal', 'bold')
 
             doc.text(
-                cursor.x + (config.offsetX || 2),
+                cursor.x + (config.offsetX || 2) + (config.align === 'right' ? (width - 4) : 0),
                 cursor.y + ((config.height / 2) || (config.twoLines ? 2.5 : 4.5)),
                 text + '',
                 {
                     maxWidth: width,
-                    align: config.center ? 'center' : 'left'
+                    align: config.align ? config.align : 'left'
                 }
             );
             if (!!config.superScript) {
@@ -91,8 +91,8 @@ export const generatePdf = (data, email) => {
         cursor.x = margin;
     }
     const quoteProductRow = (code, descriptonBlock) => [
-        [code, 36, { offsetX: 11 }], descriptonBlock, [currency(data[`quote-${code}-quantity`]), 23],
-        [currency(data[`quote-${code}-unit-price`]), 37], [currency(data[`quote-${code}-total`]), 23]
+        [code, 36, { offsetX: 11 }], descriptonBlock, [data[`quote-${code}-quantity`], 23, { align: 'right' }],
+        [currency(data[`quote-${code}-unit-price`]), 37, { align: 'right' }], [currency(data[`quote-${code}-total`]), 23, { align: 'right' }]
     ]
     const notice = () => {
         cursor.y += 4;
@@ -168,10 +168,10 @@ export const generatePdf = (data, email) => {
         quoteProductRow('SKU 004', ['Countertop (No box)', 52, { offsetX: 13 }]),
         quoteProductRow('SKU 005', ['Door (No box)', 52, { offsetX: 17 }]),
         quoteProductRow('SKU 007', ['Shoe insert', 52, { offsetX: 18 }]),
-        quoteProductRow('SKU 012', ['Small door/trolley handle sticker', 52, { offsetX: 25, center: true }]),
-        quoteProductRow('SKU 013', ['Large door/trolley handle sticker', 52, { offsetX: 25, center: true }]),
-        [["VAT (if applicable)", 148, { bold: true, offsetX: 60 }], [currency(data['quote-vat']), 37]],
-        [["TOTAL - Including Shipping", 148, { bold: true, offsetX: 53 }], [currency(data['quote-total']), 37]],
+        quoteProductRow('SKU 012', ['Small door/trolley handle sticker', 52, { offsetX: 25, align: 'center' }]),
+        quoteProductRow('SKU 013', ['Large door/trolley handle sticker', 52, { offsetX: 25, align: 'center' }]),
+        [["VAT (if applicable)", 148, { bold: true, offsetX: 60 }], [currency(data['quote-vat']), 37, { align: 'right' }]],
+        [["TOTAL - Including Shipping", 148, { bold: true, offsetX: 53 }], [currency(data['quote-total']), 37, { align: 'right' }]],
     ])
 
     section("CUSTOMER DELIVERY ADDRESS FOR THIS ORDER", [
