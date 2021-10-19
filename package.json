@@ -8,7 +8,6 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "build:win32": "yarn electron-webpack && yarn electron-builder --win --ia32",
     "build:patch": "yarn version --patch && yarn electron-webpack && yarn electron-builder --win",
     "build:major": "yarn version --major && yarn electron-webpack && yarn electron-builder --win"
   },
